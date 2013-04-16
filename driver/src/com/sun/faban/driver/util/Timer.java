@@ -35,7 +35,10 @@ import java.util.logging.Logger;
  */
 public class Timer implements Serializable {
 
-    /** The millisec epoch time of this benchmark. */
+    /** The serialVersionUID */
+    private static final long serialVersionUID = -7787305456232267264L;
+
+   /** The millisec epoch time of this benchmark. */
 	long epochMillis;
 
     /** The nanosec epoch time of this benchmark. */
