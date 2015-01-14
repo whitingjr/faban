@@ -68,7 +68,7 @@ done
 
 #only notify for particular commands 
 case $ISSUED_PARAMETER in
-	"wait" )  notify-send "Faban" "Run $RUN_ID has completed." --urgency=normal --expire-time=360000 ;;
+	"wait" )  notify-send "Faban" "Run $RUN_ID has completed." --urgency=normal --expire-time=360000 --app-name=Faban --icon=resources/faban_icon.png ;;
 # add more notifications if wanted here
 #	*) echo "no notification" ;;	
 esac
