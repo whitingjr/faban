@@ -66,9 +66,11 @@ for param do
 	esac
 done
 
+CURRENT=`pwd`
+
 #only notify for particular commands 
 case $ISSUED_PARAMETER in
-	"wait" )  notify-send "Faban" "Run $RUN_ID has completed." --urgency=normal --expire-time=360000 --app-name=Faban --icon=resources/faban_icon.png ;;
+	"wait" )  notify-send "Faban" "Run $RUN_ID has completed." --urgency=normal --expire-time=360000 --app-name=Faban --icon="$FABAN_HOME/resources/faban_icon.png" ;;
 # add more notifications if wanted here
 #	*) echo "no notification" ;;	
 esac
