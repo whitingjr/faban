@@ -42,3 +42,34 @@ fi
 
 $JAVA -classpath $CLASSPATH -Dfaban.cli.command=$0 \
 com.sun.faban.harness.util.CLI $*
+
+ISSUED_PARAMETER="NONE"
+
+# determine which command was used
+for COMMAND in $*  ; do
+	case $COMMAND in
+	"pending" | "status" | "submit" | "kill" | "wait" | "showlogs" ) ISSUED_PARAMETER=$COMMAND ;;
+#	*) echo "no command match for $COMMAND"
+	esac
+done
+
+next=1
+#work out the runId
+for param do
+	#echo "processing positional parameter $param"
+	if [ 0 -eq $next ] ; then
+		RUN_ID=$param
+		break
+	fi
+	case $param in 
+		"wait" ) next=0 ;;
+	esac
+done
+
+#only notify for particular commands 
+case $ISSUED_PARAMETER in
+	"wait" )  notify-send "Faban" "Run $RUN_ID has completed." --urgency=normal --expire-time=360000 ;;
+# add more notifications if wanted here
+#	*) echo "no notification" ;;	
+esac
+
