@@ -466,7 +466,6 @@ public class CmdAgentImpl extends UnicastRemoteObject
      */
     public void unreferenced()
     {
-        kill();
     }
 
     /**
