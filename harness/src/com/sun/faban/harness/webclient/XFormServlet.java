@@ -227,6 +227,7 @@ public class XFormServlet extends HttpServlet {
                     logger.finer("added request param '" + s + "' to beanCtx");
                 }
             }
+            System.setProperty(XML_PARSER_FACTORY, xercesImpl);
             adapter.init();
             adapter.execute();
 
@@ -269,7 +270,7 @@ public class XFormServlet extends HttpServlet {
                                  "User-Agent"));
             adapter.beanCtx.put("chiba.web.request", request);
             adapter.beanCtx.put("chiba.web.session", session);
-            //adapter.executeHandler();
+            System.setProperty(XML_PARSER_FACTORY, xercesImpl);
             adapter.execute();
 
             // Check for redirects
