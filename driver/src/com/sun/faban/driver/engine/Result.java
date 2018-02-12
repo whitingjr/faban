@@ -155,7 +155,7 @@ public class Result extends com.sun.faban.driver.Result {
     }
 
     /**
-     * Obtains the number of operatioins of each type successfully executed
+     * Obtains the number of operations of each type successfully executed
      * during the whole run. The index into the array returned corresponds
      * to the index of getOpsNames().
      *
@@ -163,6 +163,26 @@ public class Result extends com.sun.faban.driver.Result {
      */
 	public int[] getOpsCountTotal() {
         return m.txCntTotal.clone();
+    }
+
+    @Override
+    public int getErrorCountSteady(String opsName) {
+      return m.errCntStdy[getOpsIdx(opsName)];
+    }
+
+    @Override
+    public int[] getErrorCountSteady() {
+        return m.errCntStdy.clone();
+    }
+
+    @Override
+    public int getErrorCountTotal(String opsName) {
+        return m.errCntTotal[getOpsIdx(opsName)];
+    }
+
+    @Override
+    public int[] getErrorCountTotal() {
+        return m.errCntTotal.clone();
     }
 
     /**
